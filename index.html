@@ -1,121 +1,522 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WRAI - Premium Script Platform</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WRAI — Premium Script Platform</title>
+  <meta name="description" content="WRAI is a premium platform to browse, explore, and download high-quality scripts. Fast, reliable, and built for developers.">
+  <meta name="keywords" content="WRAI, scripts, download scripts, script platform, developer tools, premium scripts">
+  <meta name="author" content="WRAI">
+  <meta name="theme-color" content="#0a0a0f">
 
-    <link rel="stylesheet" href="styles.css">
+  <!-- Open Graph -->
+  <meta property="og:title" content="WRAI — Premium Script Platform">
+  <meta property="og:description" content="Browse and download premium, production-ready scripts on WRAI.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://windsupremacyontop-alt.github.io/WRAI/">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WRAI — Premium Script Platform">
+  <meta name="twitter:description" content="Browse and download premium, production-ready scripts on WRAI.">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://windsupremacyontop-alt.github.io/WRAI/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<div class="background">
-    <div class="stars"></div>
-    <div class="nebula nebula-left"></div>
-    <div class="nebula nebula-right"></div>
-</div>
+  <!-- ================= BACKGROUND LAYERS ================= -->
+  <div class="background-layer" aria-hidden="true">
+    <div class="bg-stars" id="bgStars"></div>
+    <div class="bg-nebula" id="bgNebula"></div>
+    <div class="bg-aurora" id="bgAurora"></div>
+    <div class="bg-particles" id="bgParticles"></div>
+    <div class="bg-glow" id="bgGlow"></div>
+    <div class="bg-grid"></div>
+    <div class="bg-blur-layer" id="bgBlurLayer"></div>
+    <div class="bg-lighting" id="bgLighting"></div>
+    <div class="mouse-glow" id="mouseGlow"></div>
+  </div>
 
-<nav>
+  <!-- ================= SKIP LINK ================= -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <div class="logo">
-        WRAI
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="navbar-inner" aria-label="Primary navigation">
+      <a href="#home" class="navbar-logo" aria-label="WRAI Home">
+        <span class="logo-mark" aria-hidden="true">W</span>
+        <span class="logo-text">WRAI</span>
+      </a>
+
+      <ul class="navbar-links" id="navbar-links">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#scripts" class="nav-link">Scripts</a></li>
+        <li><a href="#downloads" class="nav-link">Downloads</a></li>
+        <li><a href="#why-wrai" class="nav-link">About</a></li>
+      </ul>
+
+      <div class="navbar-actions">
+        <span class="navbar-version-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>v2.4.0</span>
+        </span>
+        <a href="https://github.com/windsupremacyontop-alt/WRAI" target="_blank" rel="noopener noreferrer" class="btn btn-github" aria-label="View WRAI on GitHub">
+          <svg class="icon-github" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar-links">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
+      <div class="hero-light" id="heroLight" aria-hidden="true"></div>
+      <div class="hero-particles" id="heroParticles" aria-hidden="true"></div>
+
+      <div class="hero-container">
+        <div class="version-badge floating-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          <span>Version 2.4.0 — Now Live</span>
+        </div>
+
+        <h1 class="hero-title" id="hero-title">
+          <span class="title-glow">WRAI</span>
+        </h1>
+
+        <p class="hero-subtitle">Premium Script Platform</p>
+
+        <p class="hero-description">
+          Discover, explore, and download production-ready scripts built for speed and reliability.
+          WRAI brings together a curated collection of tools designed for developers who expect more.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#scripts" class="btn btn-primary">
+            <span>Browse Scripts</span>
+          </a>
+          <a href="https://github.com/windsupremacyontop-alt/WRAI" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span>View GitHub</span>
+          </a>
+        </div>
+
+        <div class="hero-stats" id="statistics" role="list" aria-label="Platform statistics">
+          <div class="stat-item" role="listitem">
+            <span class="stat-value" data-counter="3">3+</span>
+            <span class="stat-label">Scripts</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-value" data-counter="100">100%</span>
+            <span class="stat-label">GitHub Hosted</span>
+          </div>
+          <div class="stat-item" role="listitem">
+            <span class="stat-value">24/7</span>
+            <span class="stat-label">Available</span>
+          </div>
+        </div>
+
+        <a href="#features" class="scroll-indicator" aria-label="Scroll to explore">
+          <span class="scroll-indicator-mouse" aria-hidden="true">
+            <span class="scroll-indicator-dot"></span>
+          </span>
+          <span class="scroll-indicator-label">Scroll to explore</span>
+        </a>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-orb"></div>
+        <div class="hero-ring hero-ring-1"></div>
+        <div class="hero-ring hero-ring-2"></div>
+        <div class="hero-card-shine"></div>
+      </div>
+    </section>
+
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ================= FEATURES ================= -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="section-header">
+        <span class="section-tag">Capabilities</span>
+        <h2 class="section-title" id="features-title">Engineered for performance</h2>
+        <p class="section-description">
+          Every part of WRAI is built with precision, from download speed to interface responsiveness.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <article class="feature-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <h3 class="feature-title">Lightning Fast</h3>
+          <p class="feature-description">
+            Optimized delivery ensures every script downloads instantly, without delays or interruptions.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM2 12h20M12 2c2.5 2.7 4 6.2 4 10s-1.5 7.3-4 10c-2.5-2.7-4-6.2-4-10s1.5-7.3 4-10z"/></svg>
+          </div>
+          <h3 class="feature-title">Global Downloads</h3>
+          <p class="feature-description">
+            Hosted on infrastructure available worldwide, so your scripts are always within reach.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M3 3h18v14H3zM8 21h8M12 17v4"/></svg>
+          </div>
+          <h3 class="feature-title">Professional UI</h3>
+          <p class="feature-description">
+            A clean, minimal design that puts your scripts front and center with zero friction.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <h3 class="feature-title">GitHub Hosted</h3>
+          <p class="feature-description">
+            Fully transparent and version-controlled, hosted directly on GitHub Pages.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ================= AVAILABLE SCRIPTS ================= -->
+    <section class="scripts" id="scripts" aria-labelledby="scripts-title">
+      <div class="section-header">
+        <span class="section-tag">Library</span>
+        <h2 class="section-title" id="scripts-title">Available Scripts</h2>
+        <p class="section-description">
+          A growing collection of scripts, each maintained and ready for immediate use.
+        </p>
+      </div>
+
+      <div class="scripts-grid">
+        <article class="script-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="script-card-header">
+            <h3 class="script-title">WRAI Client Source</h3>
+            <div class="script-badges">
+              <span class="script-version">v1.8.2</span>
+              <span class="script-status script-status-stable">Stable</span>
+            </div>
+          </div>
+          <p class="script-description">
+            The core WRAI client script, providing the primary set of tools and utilities for everyday use.
+          </p>
+          <ul class="script-features">
+            <li>Full source access</li>
+            <li>Actively maintained</li>
+            <li>Lightweight footprint</li>
+          </ul>
+          <div class="script-card-actions">
+            <a href="client/" class="btn btn-open" aria-label="Open WRAI Client Source">
+              <span>Open</span>
+              <svg class="hover-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="client/" class="btn btn-download" aria-label="Download WRAI Client Source">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="script-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="script-card-header">
+            <h3 class="script-title">WRAI Kit</h3>
+            <div class="script-badges">
+              <span class="script-version">v1.3.0</span>
+              <span class="script-status script-status-updated">Updated</span>
+            </div>
+          </div>
+          <p class="script-description">
+            An extended toolkit bundling additional modules for advanced workflows and integrations.
+          </p>
+          <ul class="script-features">
+            <li>Modular architecture</li>
+            <li>Advanced utilities</li>
+            <li>Integration-ready</li>
+          </ul>
+          <div class="script-card-actions">
+            <a href="kit/" class="btn btn-open" aria-label="Open WRAI Kit">
+              <span>Open</span>
+              <svg class="hover-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="kit/" class="btn btn-download" aria-label="Download WRAI Kit">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="script-card">
+          <div class="card-shine" aria-hidden="true"></div>
+          <div class="script-card-header">
+            <h3 class="script-title">WRAI Basic</h3>
+            <div class="script-badges">
+              <span class="script-version">v1.0.5</span>
+              <span class="script-status script-status-stable">Stable</span>
+            </div>
+          </div>
+          <p class="script-description">
+            A lightweight, minimal script for users who need a simple and fast starting point.
+          </p>
+          <ul class="script-features">
+            <li>Minimal setup</li>
+            <li>Fast execution</li>
+            <li>Beginner friendly</li>
+          </ul>
+          <div class="script-card-actions">
+            <a href="basic/" class="btn btn-open" aria-label="Open WRAI Basic">
+              <span>Open</span>
+              <svg class="hover-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="basic/" class="btn btn-download" aria-label="Download WRAI Basic">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>
+              <span>Download</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ================= WHY WRAI ================= -->
+    <section class="why-wrai" id="why-wrai" aria-labelledby="why-title">
+      <div class="why-content">
+        <div class="section-header section-header-left">
+          <span class="section-tag">Why WRAI</span>
+          <h2 class="section-title" id="why-title">Built on a solid foundation</h2>
+          <p class="section-description">
+            WRAI is designed to be dependable at every layer — from infrastructure to interface.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item why-item-alt">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+            </div>
+            <div class="why-text">
+              <h3 class="why-title">Fast</h3>
+              <p class="why-description">Low-latency delivery keeps every interaction quick and responsive, even under load.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2 4 6v6c0 5 3.4 8.7 8 10 4.6-1.3 8-5 8-10V6l-8-4z"/></svg>
+            </div>
+            <div class="why-text">
+              <h3 class="why-title">Reliable</h3>
+              <p class="why-description">Consistent uptime and stable script versions your workflow can depend on.</p>
+            </div>
+          </div>
+
+          <div class="why-item why-item-alt">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M4 4h16v16H4zM4 9h16M9 4v16"/></svg>
+            </div>
+            <div class="why-text">
+              <h3 class="why-title">Expandable</h3>
+              <p class="why-description">Architected to grow, with room for new scripts and features over time.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <div class="why-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.04-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.02 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22 0 1.6-.02 2.89-.02 3.29 0 .32.22.7.83.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            </div>
+            <div class="why-text">
+              <h3 class="why-title">GitHub Hosted</h3>
+              <p class="why-description">Fully transparent and hosted directly on GitHub Pages infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ================= ROADMAP ================= -->
+    <section class="roadmap" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-header">
+        <span class="section-tag">Roadmap</span>
+        <h2 class="section-title" id="roadmap-title">What's coming next</h2>
+        <p class="section-description">
+          WRAI is under active development. Here's what's planned for upcoming releases.
+        </p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">01</span>
+            <h3 class="timeline-title">Search</h3>
+            <p class="timeline-description">Instant search across the full script library.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">02</span>
+            <h3 class="timeline-title">Categories</h3>
+            <p class="timeline-description">Organized browsing through tagged script categories.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">03</span>
+            <h3 class="timeline-title">Version History</h3>
+            <p class="timeline-description">Access previous releases of every script at any time.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">04</span>
+            <h3 class="timeline-title">More Scripts</h3>
+            <p class="timeline-description">Additional scripts and utilities added to the library.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">05</span>
+            <h3 class="timeline-title">Custom Themes</h3>
+            <p class="timeline-description">Personalize the interface with selectable color themes.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">06</span>
+            <h3 class="timeline-title">Download Counter</h3>
+            <p class="timeline-description">Real-time tracking of downloads for every script.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-content">
+            <span class="timeline-index">07</span>
+            <h3 class="timeline-title">API</h3>
+            <p class="timeline-description">Programmatic access to the WRAI script library.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="gradient-divider" aria-hidden="true"></div>
+
+    <!-- ================= DOWNLOADS CTA ================= -->
+    <section class="downloads-cta" id="downloads" aria-labelledby="downloads-title">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-overlay" aria-hidden="true"></div>
+      <div class="cta-content">
+        <h2 class="cta-title" id="downloads-title">Ready to get started?</h2>
+        <p class="cta-description">
+          Explore the full WRAI script library and download what you need in seconds.
+        </p>
+        <div class="cta-actions">
+          <a href="#scripts" class="btn btn-primary">
+            <span>Explore Scripts</span>
+          </a>
+          <a href="https://github.com/windsupremacyontop-alt/WRAI" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <span>View on GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="footer-glow" aria-hidden="true"></div>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="footer-logo" aria-label="WRAI Home">
+          <span class="logo-mark" aria-hidden="true">W</span>
+          <span class="logo-text">WRAI</span>
+        </a>
+        <p class="footer-tagline">Premium Script Platform</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <div class="footer-column">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#scripts">Scripts</a></li>
+            <li><a href="#downloads">Downloads</a></li>
+            <li><a href="#why-wrai">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-heading">Scripts</h3>
+          <ul>
+            <li><a href="client/">WRAI Client Source</a></li>
+            <li><a href="kit/">WRAI Kit</a></li>
+            <li><a href="basic/">WRAI Basic</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-heading">Downloads</h3>
+          <ul>
+            <li><a href="client/">Download Client</a></li>
+            <li><a href="kit/">Download Kit</a></li>
+            <li><a href="basic/">Download Basic</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3 class="footer-heading">Connect</h3>
+          <ul>
+            <li><a href="https://github.com/windsupremacyontop-alt/WRAI" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="#why-wrai">About</a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
 
-    <div class="links">
-        <a href="#">Home</a>
-        <a href="#scripts">Scripts</a>
-        <a href="#">About</a>
+    <div class="footer-bottom">
+      <p class="footer-copyright">&copy; <span id="currentYear">2026</span> WRAI. All rights reserved.</p>
     </div>
+  </footer>
 
-</nav>
-
-<header>
-
-    <div class="version">
-        Version 2.0
-    </div>
-
-    <h1>WRAI</h1>
-
-    <h2>Premium Script Platform</h2>
-
-    <p>
-        Modern • Fast • Professional
-    </p>
-
-</header>
-
-<section id="scripts">
-
-<h3>Available Scripts</h3>
-
-<div class="cards">
-
-<a class="card" href="client/">
-
-<div>
-
-<h4>WRAI Client Source</h4>
-
-<span>Premium Edition</span>
-
-<p>
-The flagship WRAI package.
-</p>
-
-</div>
-
-<div class="arrow">→</div>
-
-</a>
-
-<a class="card purple" href="kit/">
-
-<div>
-
-<h4>WRAI Kit</h4>
-
-<span>Toolkit</span>
-
-<p>
-Everything you need.
-</p>
-
-</div>
-
-<div class="arrow">→</div>
-
-</a>
-
-<a class="card pink" href="basic/">
-
-<div>
-
-<h4>WRAI Basic</h4>
-
-<span>Starter Edition</span>
-
-<p>
-Simple and lightweight.
-</p>
-
-</div>
-
-<div class="arrow">→</div>
-
-</a>
-
-</div>
-
-</section>
-
-<script src="script.js"></script>
-
+  <script src="script.js" defer></script>
 </body>
 </html>
